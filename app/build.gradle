@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias '07140556'
+            keyPassword 'as9009268'
+            storeFile file('C:/Users/john/john.jks')
+            storePassword '9009268'
+        }
+    }
+    compileSdkVersion 22
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        applicationId "com.example.john.work7"
+        minSdkVersion 21
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/BaiduLBS_Android.jar')
+}
